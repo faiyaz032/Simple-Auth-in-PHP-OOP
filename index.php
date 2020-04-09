@@ -1,11 +1,11 @@
-
 <?php
 require_once 'config/db_config.php';
 
+session_start();
+
 if($user->is_loggedIn()!="")
 {
-    echo "<h1>You are Already Logged in</h1>";
-    exit();
+    $user->redirect('home.php');
 }
 
 if(isset($_POST['btn-login']))
