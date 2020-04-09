@@ -1,5 +1,6 @@
 <?php
 
+
  $DB_host = "localhost";
  $DB_user = "root";
  $DB_pass = "";
@@ -14,3 +15,5 @@
      echo  $e->getMessage();
  }
 
+ include_once '../classes/User.php';
+ $user = new User($connect);
