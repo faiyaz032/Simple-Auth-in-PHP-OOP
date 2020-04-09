@@ -30,4 +30,27 @@ class User{
         }
     }
 
+    //Login Method
+    public function login($uname, $uemail,$upass)
+    {
+        try{
+            $stmt = $this->db->prepare("SELECT * FROM `users` WHERE user_name=:uname OR user_email=:uemail LIMIT 1");
+            $stmt->execute(array(':uname'=>$uname, ':uemail'=>$uemail));
+            $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($stmt->rowCount() > 0)
+            {
+                if(password_verify($upass, $userRow['user_pass']))
+                {
+                    $_SESSION['user_session'] = $userRow['user_id'];
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+        }catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+    }
+
 }
