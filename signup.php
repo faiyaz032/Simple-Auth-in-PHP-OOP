@@ -1,10 +1,6 @@
 <?php
-require_once 'config/db_config.php';
 
-if($user->is_loggedin()!="")
-{
-    $user->redirect('home.php');
-}
+require_once 'config/db_config.php';
 
 if(isset($_POST['btn-signup']))
 {
@@ -45,7 +41,7 @@ if(isset($_POST['btn-signup']))
          {
             if($user->register($uname,$uemail,$upass)) 
             {
-               $user->redirect('home.php');
+               $user->redirect('signup.php?joined');
             }
          }
      }
@@ -62,7 +58,7 @@ if(isset($_POST['btn-signup']))
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Sign up : cleartuts</title>
+<title>Sign up</title>
 
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="style.css" type="text/css"  />
