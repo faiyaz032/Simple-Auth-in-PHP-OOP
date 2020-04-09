@@ -62,7 +62,7 @@ class User{
         }
     }
 
-    //Redirect Method
+    //Redirect Helper
     public function redirect($url)
    {
        header("Location: $url");

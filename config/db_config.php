@@ -15,5 +15,5 @@
      echo  $e->getMessage();
  }
 
- include_once '../classes/User.php';
+ include_once 'classes/User.php';
  $user = new User($connect);
