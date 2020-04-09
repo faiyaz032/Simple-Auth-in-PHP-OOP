@@ -53,4 +53,28 @@ class User{
         }
     }
 
+    //Session check method
+    public function is_loggedIn()
+    {
+        if(isset($_SESSION['user_session']))
+        {
+            return true;
+        }
+    }
+
+    //Redirect Method
+    public function redirect($url)
+   {
+       header("Location: $url");
+   }
+
+   //Logout Method
+   public function logout()
+   {
+       session_destroy();
+       unset($_SESSION['user_session']);
+       return true;
+   }
+
 }
+
